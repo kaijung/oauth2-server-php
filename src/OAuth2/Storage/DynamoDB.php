@@ -349,7 +349,8 @@ class DynamoDB implements
     // use a secure hashing algorithm when storing passwords. Override this for your application
     protected function hashPassword($password)
     {
-        return sha1($password);
+        //return sha1($password);
+        return password_hash($password,PASSWORD_BCRYPT);
     }
 
     public function getUser($username)
